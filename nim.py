@@ -200,15 +200,15 @@ def computer_move(piles, difficulty):
             return
         
         #Winning move, if 2 piles has 1 counter, remove all counters from the last pile
-        if piles[0] == 1 and piles[1] == 1 and piles[2] != 0:
+        if piles[0] == 1 and piles[1] == 1 and piles[2] != 0 and piles[2] != 1:
             type("Computer removed " + str(piles[2] - 1) +" counter.\n", 0.07)
             piles[2] -= piles[2] - 1
             return
-        if piles[0] == 1 and piles[1] != 0 and piles[2] == 1:
+        if piles[0] == 1 and piles[1] != 0 and piles[1] != 1 and piles[2] == 1:
             type("Computer removed " + str(piles[1] - 1) +" counter.\n", 0.07)
             piles[1] -= piles[1] - 1
             return
-        if piles[0] != 0 and piles[1] == 1 and piles[2] == 1:
+        if piles[0] != 0 and piles[0] != 1 and piles[1] == 1 and piles[2] == 1:
             type("Computer removed " + str(piles[0] - 1) +" counter.\n", 0.07)
             piles[0] -= piles[0] - 1
             return
@@ -315,16 +315,14 @@ def computer_evaluation(piles):
             return 
         
          #Winning move, if 2 piles has 1 counter, remove all counters from the last pile
-        if piles[0] == 1 and piles[1] == 1 and piles[2] != 0:
-            type("Computer recommends removeing " + str(piles[2] - 1) +" counters from pile 3.\n", 0.07)
+        if piles[0] == 1 and piles[1] == 1 and piles[2] != 0 and piles[2] !=1:
+            type("Computer recommends removing " + str(piles[2] - 1) +" counters from pile 3.\n", 0.07)
             return
-        if piles[0] == 1 and piles[1] != 0 and piles[2] == 1:
+        if piles[0] == 1 and piles[1] != 0 and piles[1] != 1 and piles[2] == 1:
             type("Computer recommends removing " + str(piles[1] - 1) +" counter from pile 2.\n", 0.07)
-            piles[1] -= piles[1] - 1
             return
-        if piles[0] != 0 and piles[1] == 1 and piles[2] == 1:
+        if piles[0] != 0 and piles[0] != 1 and piles[1] == 1 and piles[2] == 1:
             type("Computer recommends removing " + str(piles[0] - 1) +" counter from pile 1.\n", 0.07)
-            piles[0] -= piles[0] - 1
             return
 
         #Winning move, if all piles have the same number of counters, remove all counters from one of the piles
