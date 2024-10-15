@@ -99,7 +99,7 @@ def players_2():
     #End of game if there is only 1 counter left after player move
     if sum(piles) == 1:
         type("\n" + names[i-1] + " loses because there is only 1 counter left!", 0.07)
-    
+
     #End of game if there are no counters left after player moves, the player who took that last counter is the one who just moved
     elif sum(piles) == 0:
         type("\n" + names[i] + " loses because they took the last counter!", 0.07)
@@ -142,7 +142,7 @@ def players_1():
         #End of game if there are no counters left after player moves. Computer never takes until all piles equals 0. Only the player can
         if sum(piles) == 0:
             type("\n" + name + " loses because they took the last counter!", 0.07)
-
+            break
 
 
 #Computer Difficulty
@@ -225,9 +225,9 @@ def computer_move(piles, difficulty):
             #Only happens if the XOR of all piles is not 0
             for i in range(len(piles)): #Finds the pile to remove counters from
                 target_pile = piles[i] ^ win_number #XOR of the pile and the win number
-                if target_pile < piles[i]: #If the target pile is less than the current pile
+                if target_pile < piles[i]: #If the target pile is less than the current pile, this makes that pile the winning move
                     type("Computer removed " + str(piles[i] - target_pile) +" counters from pile " + str(i + 1) + ".\n", 0.07)
-                    piles[i] = target_pile
+                    piles[i] = target_pile #Make the pile equal to the target pile
                     return
 
     #Chance of random move (depends on difficulty)
@@ -279,7 +279,7 @@ def computer_learning():
         #End of game if there are no counters left after player moves. Computer never takes until all piles equals 0. Only the player can
         if sum(piles) == 0:
             type("\n" + name + " loses because they took the last counter!", 0.07)
-
+            break
 
 
 #Computer Evaluation (Learning)
