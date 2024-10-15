@@ -10,7 +10,7 @@ import sys
 def type(text, delay = 0.1):
     for char in text:
         print(char, end='', flush=True)
-        time.sleep(delay)
+        time.sleep(delay*0.4)
     print()
 
 
@@ -66,7 +66,7 @@ def initialize_piles():
 
 # 2 Player game
 def players_2():
-    i = 1
+    i = random.randint(1, 2)
     #Player names
     name_1 = input("Enter player 1's name: ")
     #If no name is entered, default name is Player 1
@@ -77,7 +77,10 @@ def players_2():
     if name_2 == "":
         name_2 = "Player 2"
     names = [name_1, name_2]
-    type(name_1 + " goes first.\n", 0.07)
+    if i == 1:
+        type(names[0] + " goes first.\n", 0.07)
+    else:
+        type(names[1] + " goes first.\n", 0.07)
     display_pile(piles)
 
     #Game Loop continues game if there are counters left and the sum of the piles is greater than 1
