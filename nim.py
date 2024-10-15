@@ -47,6 +47,8 @@ def players():
                 computer_learning()
                 break
 
+
+
 #Player choice of difficulty
 def player_choice():
     choice = input("Enter computer difficulty (1-10): ")
@@ -340,6 +342,7 @@ def computer_evaluation(piles):
                 if target_pile < piles[i]: #If the target pile is less than the current pile
                     type("Computer recommends removing " + str(piles[i] - target_pile) +" counters from pile " + str(i + 1) + ".\n", 0.07)
                     return
+
 
 
 #Display the current piles
