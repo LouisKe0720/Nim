@@ -10,7 +10,7 @@ import sys
 def type(text, delay = 0.1):
     for char in text:
         print(char, end='', flush=True)
-        time.sleep(delay*0.1)
+        time.sleep(delay)
     print()
 
 
@@ -187,29 +187,29 @@ def computer_move(piles, difficulty):
         
         #Winning move, if 2 piles has 0 counters, remove all counters except 1 from the last pile
         if piles[0] == 0 and piles[1] == 0 and piles[2] != 0:
-            type("Computer removed " + str(piles[2]) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[2]) +" counter from pile 3.\n", 0.07)
             piles[2] -= piles[2] - 1
             return
         if piles[0] == 0 and piles[1] != 0 and piles[2] == 0:
-            type("Computer removed " + str(piles[1] - 1) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[1] - 1) +" counter from pile 2.\n", 0.07)
             piles[1] -= piles[1] - 1
             return 
         if piles[0] != 0 and piles[1] == 0 and piles[2] == 0:
-            type("Computer removed " + str(piles[0] - 1) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[0] - 1) +" counter from pile 1.\n", 0.07)
             piles[0] -= piles[0] - 1
             return
         
         #Winning move, if 2 piles has 1 counter, remove all counters from the last pile
         if piles[0] == 1 and piles[1] == 1 and piles[2] != 0 and piles[2] != 1:
-            type("Computer removed " + str(piles[2] - 1) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[2] - 1) +" counter from pile 3.\n", 0.07)
             piles[2] -= piles[2] - 1
             return
         if piles[0] == 1 and piles[1] != 0 and piles[1] != 1 and piles[2] == 1:
-            type("Computer removed " + str(piles[1] - 1) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[1] - 1) +" counter from pile 2.\n", 0.07)
             piles[1] -= piles[1] - 1
             return
         if piles[0] != 0 and piles[0] != 1 and piles[1] == 1 and piles[2] == 1:
-            type("Computer removed " + str(piles[0] - 1) +" counter.\n", 0.07)
+            type("Computer removed " + str(piles[0] - 1) +" counter from pile 1.\n", 0.07)
             piles[0] -= piles[0] - 1
             return
         
